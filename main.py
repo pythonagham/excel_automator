@@ -50,7 +50,7 @@ def automate_attendance():
         if total_row:
             sheet.cell(row=total_row, column=empty_column).value = f'=COUNTIF({col_letter}2:{col_letter}{last_student_row}, "P")'
         if percent_row:
-            sheet.cell(row=percent_row, column=empty_column).value = f'=ROUND({col_letter}{total_row}/COUNTA(A2:A{last_student_row})*100,2)'
+            sheet.cell(row=percent_row, column=empty_column).value = f'=ROUND({col_letter}{total_row}/COUNTA(A2:A{last_student_row})*100,2)&" %"'
 
         # Step 7: Save workbook
         base, ext = os.path.splitext(excel_path.get())
